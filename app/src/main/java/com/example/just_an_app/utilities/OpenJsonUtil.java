@@ -49,7 +49,6 @@ public class OpenJsonUtil {
 
                 int id = jsonObject.getInt("id");
                 String category = jsonObject.getString("name");
-                Log.d("CATEGORYNAME", category);
 
                 categories.add(new Categories(id, category));
             }

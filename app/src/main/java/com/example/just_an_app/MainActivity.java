@@ -50,10 +50,6 @@ public class MainActivity extends AppCompatActivity {
         protected ArrayList<Categories> doInBackground(String... strings) {
 
             mCategories = NetworkUtil.fetchAllCategories();
-            Categories categories = mCategories.get(0);
-            String name = categories.getmCategory();
-
-            Log.d("CATEGORIES", name);
             return mCategories;
         }
 
