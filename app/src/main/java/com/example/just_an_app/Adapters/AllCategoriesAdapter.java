@@ -1,6 +1,7 @@
 package com.example.just_an_app.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.example.just_an_app.Models.Categories;
 import com.example.just_an_app.R;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,9 +43,9 @@ public class AllCategoriesAdapter extends
         Context context = parent.getContext();
         int layoutForListItem = R.layout.category_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
-        boolean shouldAttachToParentImmediately = false;
+        boolean shouldAttacheImmediatelyToParent = false;
 
-        View view = inflater.inflate(layoutForListItem, parent,shouldAttachToParentImmediately);
+        View view = inflater.inflate(layoutForListItem, parent, shouldAttacheImmediatelyToParent);
         return new CategoriesViewHolder(view);
     }
 
@@ -54,8 +56,8 @@ public class AllCategoriesAdapter extends
 
     @Override
     public int getItemCount() {
-        if (mCategories == null) return 0;
-        return mCategories.size();
+       if (mCategories == null) return 0;
+       return mCategories.size();
     }
 
     public void setCategories(ArrayList<Categories> mCategories) {
