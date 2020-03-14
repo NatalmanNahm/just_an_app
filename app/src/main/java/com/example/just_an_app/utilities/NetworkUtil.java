@@ -3,6 +3,8 @@ package com.example.just_an_app.utilities;
 import android.net.Uri;
 import android.util.Log;
 
+import com.example.just_an_app.Models.Categories;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 
 /**
  * Utility class that will serves as network requester to the data base
@@ -57,6 +60,7 @@ public class NetworkUtil {
         if (inputStream != null){
             InputStreamReader inputStreamReader =
                     new InputStreamReader(inputStream, Charset.forName("UTF-8"));
+
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line = bufferedReader.readLine();
 
@@ -75,9 +79,10 @@ public class NetworkUtil {
      * @return The contents of the HTTP response.
      * @throws IOException Related to network and stream reading
      */
-    private static String getResponseFromHttpUrl(URL url) throws IOException{
+    private static String getResponseFromHttpUrl (URL url) throws IOException{
         String jsonResponse = "";
 
+        //if the url is null the return early
         if (url == null){
             return jsonResponse;
         }
@@ -98,14 +103,15 @@ public class NetworkUtil {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-                Log.e(TAG, "Build error code: " + urlConnection.getResponseCode());
+                Log.e(TAG, "Error response code " + urlConnection.getResponseCode());
             }
-        }catch (IOException e){
-            Log.e(TAG, "MakeHttpRequest: Error retrieving data from Json result" + e);
+        } catch (IOException e){
+            Log.e(TAG, "MakeHttpRequest: Problem retrieving data from Json result" + e);
         }finally {
             if (urlConnection != null){
                 urlConnection.disconnect();
             }
+
             if (inputStream != null){
                 inputStream.close();
             }
@@ -113,7 +119,27 @@ public class NetworkUtil {
         return jsonResponse;
     }
 
+    /**
+     * Query the trivia question database and return a list of {@link Categories}.
+     * @return
+     */
+    public static ArrayList<Categories> fetchAllCategories(){
+        //create a Url Object
+        URL url = build_all_categories();
 
+        String jsonResponse = "";
+
+        //Perform HTTP request to the url and return JSON response back
+        try {
+            jsonResponse = getResponseFromHttpUrl(url);
+        }catch (IOException e){
+            Log.e(TAG, "Error making Http Request");
+        }
+
+        //Extract data needed from the json response
+        ArrayList<Categories> allCategories = OpenJsonUtil.extractAllCategories(jsonResponse);
+        return allCategories;
+    }
 
 
 }
