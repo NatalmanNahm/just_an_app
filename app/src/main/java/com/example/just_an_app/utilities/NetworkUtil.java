@@ -60,8 +60,8 @@ public class NetworkUtil {
         if (inputStream != null){
             InputStreamReader inputStreamReader =
                     new InputStreamReader(inputStream, Charset.forName("UTF-8"));
-
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
             String line = bufferedReader.readLine();
 
             while (line != null){
@@ -117,6 +117,7 @@ public class NetworkUtil {
             }
         }
         return jsonResponse;
+
     }
 
     /**
@@ -140,6 +141,4 @@ public class NetworkUtil {
         ArrayList<Categories> allCategories = OpenJsonUtil.extractAllCategories(jsonResponse);
         return allCategories;
     }
-
-
 }

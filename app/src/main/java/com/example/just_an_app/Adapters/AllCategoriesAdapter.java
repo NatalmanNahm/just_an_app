@@ -25,16 +25,24 @@ import butterknife.ButterKnife;
 public class AllCategoriesAdapter extends
         RecyclerView.Adapter<AllCategoriesAdapter.CategoriesViewHolder> {
     private Context mContext;
-    ArrayList<Categories> mCategories;
+    private ArrayList<Categories> mCategories;
+
+    private final CategoryClickHandler mClickHandler;
+
+    public interface CategoryClickHandler{
+        void onClick(int id, String name);
+    }
 
     /**
      * Constructor for the adapter
      * @param mContext
      * @param mCategories
      */
-    public AllCategoriesAdapter(Context mContext, ArrayList<Categories> mCategories) {
+    public AllCategoriesAdapter(Context mContext, ArrayList<Categories> mCategories,
+                                CategoryClickHandler clickHandler) {
         this.mContext = mContext;
         this.mCategories = mCategories;
+        this.mClickHandler = clickHandler;
     }
 
     @NonNull
@@ -43,9 +51,9 @@ public class AllCategoriesAdapter extends
         Context context = parent.getContext();
         int layoutForListItem = R.layout.category_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
-        boolean shouldAttacheImmediatelyToParent = false;
+        boolean shouldAttachToParentImmediately = false;
 
-        View view = inflater.inflate(layoutForListItem, parent, shouldAttacheImmediatelyToParent);
+        View view = inflater.inflate(layoutForListItem, parent, shouldAttachToParentImmediately);
         return new CategoriesViewHolder(view);
     }
 
@@ -65,7 +73,7 @@ public class AllCategoriesAdapter extends
         notifyDataSetChanged();
     }
 
-    public class CategoriesViewHolder extends RecyclerView.ViewHolder {
+    public class CategoriesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @Bind(R.id.category_name) TextView mCategoryName;
         Context mContext;
@@ -74,10 +82,22 @@ public class AllCategoriesAdapter extends
             super(itemView);
             mContext = itemView.getContext();
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
         }
 
         public void bindCategories(Categories categories){
             mCategoryName.setText(categories.getmCategory());
+        }
+
+        @Override
+        public void onClick(View view) {
+            int adapterPosition = getAdapterPosition();
+            Categories categories = mCategories.get(adapterPosition);
+
+            int id = categories.getmCatId();
+            String name = categories.getmCategory();
+
+            mClickHandler.onClick(id, name);
         }
     }
 }
