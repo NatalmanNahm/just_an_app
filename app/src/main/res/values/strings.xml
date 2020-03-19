@@ -8,9 +8,20 @@
     <string name="difficulty_easy">Easy</string>
     <string name="difficulty_medium">Medium</string>
     <string name="difficulty_hard">Hard</string>
-    <string name="type_yes_or_no">Yes or No Questions</string>
-    <string name="type_multiple_question">Multiple Questions</string>
+    <string name="type_t_or_f">True or False Questions</string>
+    <string name="type_multiple_Choice">Multiple Choice</string>
     <string name="type_all_type">Any type</string>
     <string name="difficulty_level">Difficulty Level</string>
     <string name="type_of_questions">Type of Questions</string>
+
+    //Strings in the sharedPreferences
+    <string name="pref_dif_key" translatable="false">difficulty</string>
+    <string name="pref_dif_easy" translatable="false">Easy</string>
+    <string name="pref_dif_medium" translatable="false">Medium</string>
+    <string name="pref_dif_hard" translatable="false">Hard</string>
+    <string name="pref_type_key" translatable="false">type</string>
+    <string name="pref_any_type" translatable="false">Any Type</string>
+    <string name="pref_type_t_or_f" translatable="false">True / False</string>
+    <string name="pref_type_multiple_Choice" translatable="false">Multiple Choice</string>
+
 </resources>

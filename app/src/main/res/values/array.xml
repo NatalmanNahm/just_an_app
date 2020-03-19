@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    //Arrays for difficulty
+    <array name="pref_difficulty_options">
+        <item>@string/difficulty_easy</item>
+        <item>@string/difficulty_medium</item>
+        <item>@string/difficulty_hard</item>
+    </array>
+
+    <array name="pref_dif_values">
+        <item>@string/pref_dif_easy</item>
+        <item>@string/pref_dif_medium</item>
+        <item>@string/pref_dif_hard</item>
+    </array>
+
+    //Arrays for questions types
+    <array name="pref_question_type_option">
+        <item>@string/type_all_type</item>
+        <item>@string/type_t_or_f</item>
+        <item>@string/type_multiple_Choice</item>
+    </array>
+
+    <array name="pref_type_values">
+        <item>@string/pref_any_type</item>
+        <item>@string/pref_type_t_or_f</item>
+        <item>@string/pref_type_multiple_Choice</item>
+    </array>
+
+</resources>

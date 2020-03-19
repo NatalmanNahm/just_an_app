@@ -4,10 +4,5 @@
     tools:context=".MainActivity">
 
     <item android:id="@+id/num_of_questions"
-        android:title="@string/number_of_question"/>
-    <item android:id="@+id/difficulty"
-        android:title="@string/difficulty_level"/>
-    <item android:id="@+id/type_of_question"
-        android:title="@string/type_of_questions"/>
-
+        android:title="@string/settings"/>
 </menu>
