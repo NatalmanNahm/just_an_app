@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="@string/pref_dif_medium"
+        android:entries="@array/pref_difficulty_options"
+        android:entryValues="@array/pref_dif_values"
+        android:key="@string/pref_dif_key"
+        android:title="@string/difficulty_level"/>
+
+    <ListPreference
+        android:defaultValue="@string/pref_any_type"
+        android:entries="@array/pref_question_type_option"
+        android:entryValues="@array/pref_type_values"
+        android:key="@string/pref_type_key"
+        android:title="@string/type_of_questions"
+        />
+    <EditTextPreference
+        android:defaultValue="@string/pref_num_questions"
+        android:key="@string/pref_num_key"
+        android:title="@string/number_of_question"
+        />
+
+</PreferenceScreen>

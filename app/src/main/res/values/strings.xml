@@ -16,6 +16,8 @@
 
     //Strings in the sharedPreferences
     <string name="pref_dif_key" translatable="false">difficulty</string>
+    <string name="pref_num_questions" translatable="false">10</string>
+    <string name="pref_num_key" translatable="false">number</string>
     <string name="pref_dif_easy" translatable="false">Easy</string>
     <string name="pref_dif_medium" translatable="false">Medium</string>
     <string name="pref_dif_hard" translatable="false">Hard</string>
