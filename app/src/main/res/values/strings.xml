@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">just_an_app</string>
     <string name="category">Sport</string>
+    <string name="settings">Settings</string>
+    
+    //Strings for settings
+    <string name="number_of_question">Number of Questions</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="type_yes_or_no">Yes or No Questions</string>
+    <string name="type_multiple_question">Multiple Questions</string>
+    <string name="type_all_type">Any type</string>
+    <string name="difficulty_level">Difficulty Level</string>
+    <string name="type_of_questions">Type of Questions</string>
 </resources>
