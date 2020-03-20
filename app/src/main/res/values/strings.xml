@@ -2,7 +2,7 @@
     <string name="app_name">just_an_app</string>
     <string name="category">Sport</string>
     <string name="settings">Settings</string>
-    
+
     //Strings for settings
     <string name="number_of_question">Number of Questions</string>
     <string name="difficulty_easy">Easy</string>
