@@ -17,6 +17,7 @@ public class SettingFragment extends PreferenceFragmentCompat implements
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+
         //add reference to the xml file
         addPreferencesFromResource(R.xml.pref_visualizer);
 
@@ -25,7 +26,7 @@ public class SettingFragment extends PreferenceFragmentCompat implements
         int count = preferenceScreen.getPreferenceCount();
 
         // Go through all of the preferences, and set up their preference summary.
-        for (int i = 0; i<count; i++){
+        for (int i = 0; i < count; i++){
             Preference p = preferenceScreen.getPreference(i);
 
             if (!(p instanceof CheckBoxPreference)){
@@ -55,8 +56,10 @@ public class SettingFragment extends PreferenceFragmentCompat implements
         }
     }
 
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
         //figure out which of the preference was changed
         Preference preference = findPreference(key);
 
@@ -97,19 +100,20 @@ public class SettingFragment extends PreferenceFragmentCompat implements
             }
         }
         return true;
+
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPreferenceScreen().getSharedPreferences()
-                .registerOnSharedPreferenceChangeListener(this);
+        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    public void onDestroy() {
+        super.onDestroy();
         getPreferenceScreen().getSharedPreferences()
                 .unregisterOnSharedPreferenceChangeListener(this);
     }
 }
+
