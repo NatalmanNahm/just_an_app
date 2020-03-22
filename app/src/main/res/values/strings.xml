@@ -26,4 +26,9 @@
     <string name="pref_type_t_or_f" translatable="false">True / False</string>
     <string name="pref_type_multiple_Choice" translatable="false">Multiple Choice</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="question">Question</string>
+    <string name="submit">Submit</string>
+
 </resources>
